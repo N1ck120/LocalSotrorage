@@ -1,20 +1,10 @@
 // Funções Login
 function matriz(){
   let dados
-  if(JSON.parse(window.localStorage.getItem('tds')) != null){
 
-    dados = JSON.parse(window.localStorage.getItem('tds'))
+  dados = JSON.parse(window.localStorage.getItem('tds'))
 
-  }else{
-
-    dados = [
-      { id:Date.now(),login:"will",senha:123 },
-      { id:Date.now(),login:"bob",senha:2222 },
-      { id:Date.now(),login:"ringo",senha:3333 }
-    ]
-
-  }
-    return dados
+  return dados
 }
 
 function login(email,pass){
@@ -23,8 +13,11 @@ function login(email,pass){
   var encontrado = false;
 
   for (var i = 0; i < db.length; i++) {
+    
     if (db[i].login == email && db[i].senha == pass) {
+
       encontrado = true;
+
       break;
     }
   }
@@ -36,12 +29,14 @@ function login(email,pass){
   } else {
 
     alert("Login bem-sucedido!")
-    window.location.replace("paginalivre.html");
+
+    window.open('paginalivre.html')
   }
 }
 
 // Funções Cadastro
 function cadastro(email, pass){
+
   var email = document.getElementById("email").value
   var senha = document.getElementById("pass").value
 
@@ -49,17 +44,27 @@ function cadastro(email, pass){
   var id = db.length + 1
 
   db.push({id:Date.now(),login:email,senha:pass })
+
   let n = JSON.stringify(db);
+
   localStorage.setItem("tds", n);
+
   console.log(db)
 
   alert("Cadastro realizado com sucesso!")
+
+  window.open('index.html')
 }
 
 function passver(email, pass, pass1) {
-  if (pass !== pass1) {
+
+  if(pass !== pass1){
+
     alert("As senhas não coincidem")
-  } else {
+
+  }else{
+
     cadastro(email, pass)
+
   }
 }
