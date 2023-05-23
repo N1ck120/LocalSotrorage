@@ -2,14 +2,16 @@
 function matriz(){
   let dados
   if(JSON.parse(window.localStorage.getItem('tds')) != null){
+
     dados = JSON.parse(window.localStorage.getItem('tds'))
 
   }else{
+
     dados = [
       { id:Date.now(),login:"will",senha:123 },
       { id:Date.now(),login:"bob",senha:2222 },
       { id:Date.now(),login:"ringo",senha:3333 }
- ]
+    ]
 
   }
     return dados
@@ -28,10 +30,13 @@ function login(email,pass){
   }
 
   if (encontrado == false) {
+
     alert("Email ou senha inválidos")
+
   } else {
+
     alert("Login bem-sucedido!")
-    window.location.href = "paginalivre.html"
+    window.location.replace("paginalivre.html");
   }
 }
 
