@@ -1,10 +1,22 @@
 // Funções Login
 function matriz(){
-  let dados
 
-  dados = JSON.parse(window.localStorage.getItem('tds'))
+  let dados
+  
+  if(JSON.parse(window.localStorage.getItem('tds')) != null){
+
+    dados = JSON.parse(window.localStorage.getItem('tds'))
+
+  }else{
+    dados = [
+
+      {id:1, login:"admin", senha:123}
+
+    ]
+  }  
 
   return dados
+  
 }
 
 function login(email,pass){
@@ -24,13 +36,13 @@ function login(email,pass){
 
   if (encontrado == false) {
 
-    alert("Email ou senha inválidos")
+    alert("Email ou senha inválidos");
 
   } else {
 
-    alert("Login bem-sucedido!")
+    alert("Login bem-sucedido!");
 
-    window.open('paginalivre.html')
+    window.open("paginalivre.html");
   }
 }
 
