@@ -4,19 +4,16 @@ function matriz(){
   let dados
   
   if(JSON.parse(window.localStorage.getItem('tds')) != null){
-
     dados = JSON.parse(window.localStorage.getItem('tds'))
+  }
 
-  }else{
+  else {
     dados = [
-
       {id:1, login:"admin", senha:123}
-
     ]
   }  
 
   return dados
-  
 }
 
 function login(email,pass){
@@ -27,21 +24,17 @@ function login(email,pass){
   for (var i = 0; i < db.length; i++) {
     
     if (db[i].login == email && db[i].senha == pass) {
-
       encontrado = true;
-
       break;
     }
   }
 
   if (encontrado == false) {
-
     alert("Email ou senha inválidos");
+  }
 
-  } else {
-
+  else {
     alert("Login bem-sucedido!");
-
     window.open("paginalivre.html");
   }
 }
@@ -50,10 +43,9 @@ function login(email,pass){
 function cadastro(email, pass){
 
   var email = document.getElementById("email").value
-  var senha = document.getElementById("pass").value
+  var pass = document.getElementById("pass").value
 
   var db = matriz()
-  var id = db.length + 1
 
   db.push({id:Date.now(),login:email,senha:pass })
 
@@ -71,12 +63,9 @@ function cadastro(email, pass){
 function passver(email, pass, pass1) {
 
   if(pass !== pass1){
-
     alert("As senhas não coincidem")
 
   }else{
-
     cadastro(email, pass)
-
   }
 }
