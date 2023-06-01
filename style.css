@@ -5,3 +5,7 @@
     width: fit-content;
     height: fit-content;
 }
+
+body {
+    background-color: gray;
+}
